@@ -14,7 +14,7 @@ source:
     - install_requires.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -23,7 +23,7 @@ requirements:
     - pip
     - python >=3.6
   run:
-    - jupyter
+    - pyyaml
     - matplotlib-base
     - numpy
     - pymatgen
@@ -33,9 +33,10 @@ requirements:
 
 test:
   imports:
-    - surfinpy
+    - {{ name }}
   commands:
     - pip check
+    - python -m unittest {{ name }}
   requires:
     - pip
 
