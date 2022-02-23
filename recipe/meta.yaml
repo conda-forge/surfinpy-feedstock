@@ -1,5 +1,5 @@
 {% set name = "surfinpy" %}
-{% set version = "2.0.0" %}
+{% set version = "2.0.2" %}
 
 
 package:
@@ -7,14 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/surfinpy-{{ version }}.tar.gz
-  sha256: 55432678b532eaf812fe2128b3c9e32ea8cebaea079ccdeb641b8a8133edcacc
-  patches:
-    # https://github.com/symmy596/SurfinPy/issues/20
-    - install_requires.patch
+  url: https://github.com/symmy596/SurfinPy/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: e03cca2d39b4eae81bcd8609b02eb983c05f09bbc168ff20fd18bdeaa1dc64c4
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
